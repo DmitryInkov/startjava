@@ -17,16 +17,16 @@ public class ConditionalStatement {
 	    	System.out.println("growth less than 1.8");
 	    }
 	    else {
-	    	System.out.println("growth greatr than or equal to 1.8");
+	    	System.out.println("growth great than or equal to 1.8");
 	    }
 	    if (firstLetter == 'M') {
 	    	System.out.println("first letter M");
 	    }
 	    else if (firstLetter == 'I') {
-	    	System.out.println("first lettr I");
+	    	System.out.println("first letter I");
 	    }
 	    else {
-	    	System.out.println("the first letter is noy M and I");
+	    	System.out.println("the first letter is not M and I");
 	    }
 
 	}
