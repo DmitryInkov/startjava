@@ -1,34 +1,29 @@
 public class Calculator {
 	public static void main(String[] args) {
-		int a = 8;
-		int b = 2;
-		int c = 0;
-		while (c <= 6) {
-			if (c == 0) {
-				System.out.print("a + b = ");
-				System.out.println(a + b);
+		int num1 = 8;
+		int num2 = 2;
+		char mathOperation = '+';
+		if (mathOperation == '+') {
+			System.out.println("num1 + num2 = " + (num1 + num2));
+		}
+		if (mathOperation == '-') {
+			System.out.println("num1 - num2 = " + (num1 - num2));
+		}
+		if (mathOperation == '*') {
+			System.out.println("num1 * num2 = " + (num1 * num2));
+		}
+		if (mathOperation == '/') {
+			System.out.println("num1 / num2 = " + (num1 / num2));
+		}
+		if (mathOperation == '^') {
+			int exponentiation = 1;
+			for (int i = 1; i <= num2; i++) {
+				exponentiation *= num1;
 			}
-			else if (c == 1) {
-				System.out.print("a - b = ");
-				System.out.println(a - b);
-			}
-			else if (c == 2) {
-				System.out.print("a * b = ");
-				System.out.println(a * b);
-			}
-			else if (c == 3) {
-				System.out.print("a / b = ");
-				System.out.println(a / b);
-			}
-			else if (c == 4) {
-				System.out.print("a * a= ");
-				System.out.println(a * a);
-			}
-			else if (c == 5) {
-				System.out.print("a % b= ");
-				System.out.println(a % b);
-			}
-			c++;
+			System.out.println("num1 ^ num2 = " + (exponentiation));
+		}
+		if (mathOperation == '%') {
+			System.out.println("num1 % num2 = " + (num1 % num2));
 		}
 	}
 }
