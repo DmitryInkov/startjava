@@ -8,6 +8,25 @@ public class Jaeger {
 	private int strength;
 	private int armor;
 
+	public Jaeger(String modelName, String mark, String origin, float height, float weight, int speed, int strength, int armor) {
+		this.modelName = modelName;
+		this.mark = mark;
+		this.origin = origin;
+		if (height < 0.0f) {
+			System.out.println("Некореектная высота");
+		} else {
+			this.height = height;
+		}
+		if (weight < 0.0f) {
+			System.out.println("Некорректный вес");
+		} else {
+			this.weight = weight;
+		}
+		this.speed = speed;
+		this.strength = strength;
+		this.armor = armor;
+	}
+
 	public String getModelName() {
 		return modelName;
 	}
@@ -38,46 +57,6 @@ public class Jaeger {
 
 	public int getArmor() {
 		return armor;
-	}
-
-	void setModelName(String modelName) {
-		this.modelName = modelName;
-	}
-
-	void setMark(String mark) {
-		this.mark = mark;
-	}
-
-	void setOrigin(String origin) {
-		this.origin = origin;
-	}
-
-	void setHeight(float height) {
-		if (height < 0.0f) {
-			System.out.println("Некореектная высота");
-		} else {
-			this.height = height;
-		}
-	}
-
-	void setWeight(float weight) {
-		if (weight < 0.0f) {
-			System.out.println("Некорректный вес");
-		} else {
-			this.weight = weight;
-		}
-	}
-
-	void setSpeed(int speed) {
-		this.speed = speed;
-	}
-
-	void setStrength(int strength) {
-		this.strength = strength;
-	}
-
-	void setArmor(int armor) {
-		this.armor = armor;
 	}
 
 	boolean drift() {
