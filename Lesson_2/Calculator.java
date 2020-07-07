@@ -42,13 +42,12 @@ public class Calculator {
 			case '/': 
 				System.out.println("num1 / num2 = " + (num1 / num2));
 				break;
-			case '^': {
+			case '^':
 				int exponentiation = 1;
 				for (int i = 1; i <= num2; i++) {
 					exponentiation *= num1;
 				}
 				System.out.println("num1 ^ num2 = " + (exponentiation));
-				}
 				break;
 			case '%': 
 				System.out.println("num1 % num2 = " + (num1 % num2));

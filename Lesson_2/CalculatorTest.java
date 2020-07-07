@@ -1,14 +1,13 @@
 import java.util.Scanner;
 
 public class CalculatorTest {
+	static Scanner scanner = new Scanner(System.in);
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
 		start();
 	}
 
 	public static void start() {
 		Calculator calculator = new Calculator();
-		Scanner scanner = new Scanner(System.in);
 		System.out.println("Введите первое число: ");
 		calculator.setNum1(scanner.nextInt());
 		System.out.println("Введите знак математической операции: ");
@@ -18,18 +17,17 @@ public class CalculatorTest {
 
 		calculator.calculate();
 
-		reStart();
+		restart();
 	}
 
-	public static void reStart() {
-		Scanner scanner = new Scanner(System.in);
+	public static void restart() {
 		while (true) {
 			System.out.println("Хотите продолжить?");
-			String question = scanner.nextLine();
-			if (question == "да") {
+			String answer = scanner.nextLine();
+			if (answer == "да") {
 				start();
 				break;
-			} else if (question == "нет") {
+			} else if (answer == "нет") {
 				break;
 			}
 		}
