@@ -1,4 +1,3 @@
-import java.util.Scanner;
 public class Player {
 
 	private String name;
@@ -8,12 +7,13 @@ public class Player {
 		this.name = name;
 	}
 
+	public Player() {}
+
 	public int getNumber() {
 		return number;
 	}
 
-	public void guess() {
-		Scanner scanner = new Scanner(System.in);
-		number = scanner.nextInt();
+	public void setNumber(int number) {
+		this.number = number;
 	}
 }
