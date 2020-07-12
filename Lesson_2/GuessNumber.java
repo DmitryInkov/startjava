@@ -11,7 +11,6 @@ public class GuessNumber {
 
 			Player player1 = new Player(scanner.nextInt());
 			System.out.println("Первый игрок вводит число: " + player1.getNumber());
-
 			if (player1.getNumber() > targetNumber) {
 				System.out.println("Введенное число первого игрока больше того, что загадал компьютер");
 			} else if (player1.getNumber() < targetNumber) {
