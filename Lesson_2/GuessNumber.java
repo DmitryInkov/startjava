@@ -4,23 +4,30 @@ public class GuessNumber {
 	Scanner scanner = new Scanner(System.in);
 
 	public void start() {
-		Player player1 = new Player();
-		Player player2 = new Player();
 
-		int targetNumber = (int) (Math.random() * 100);
+		int targetNumber = (int) (Math.random() * 101);
 
 		while(true) {
-			player1.setNumber(scanner.nextInt());
-			player2.setNumber(scanner.nextInt());
 
-			System.out.println("Первый игрок думает, что это " + player1.getNumber());
-			System.out.println("Второй игрок думает, что это " + player2.getNumber());
+			Player player1 = new Player(scanner.nextInt());
+			System.out.println("Первый игрок вводит число: " + player1.getNumber());
 
-			if (player1.getNumber() == targetNumber) {
+			if (player1.getNumber() > targetNumber) {
+				System.out.println("Введенное число первого игрока больше того, что загадал компьютер");
+			} else if (player1.getNumber() < targetNumber) {
+				System.out.println("Введенное число первого игрока меньше того, что загадал компьютер");
+			} else if (player1.getNumber() == targetNumber) {
 				System.out.println("Первый игрок угадал!");
 				break;
 			}
-			if (player2.getNumber() == targetNumber) {
+
+			Player player2 = new Player(scanner.nextInt());
+			System.out.println("Второй игрок вводит число: " + player2.getNumber());
+			if (player2.getNumber() > targetNumber) {
+				System.out.println("Введенное число второго игрока больше того, что загадал компьютер");
+			} else if (player2.getNumber() < targetNumber) {
+				System.out.println("Введенное число второго игрока меньше того, что загадал компьютер");
+			} else if (player2.getNumber() == targetNumber) {
 				System.out.println("Второй игрок угадал!");
 				break;
 			}

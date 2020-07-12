@@ -2,10 +2,12 @@ import java.util.Scanner;
 
 public class GuessNumberTest {
 	static Scanner scanner = new Scanner(System.in);
-	static GuessNumber guessNumber = new GuessNumber();
 
 	public static void main(String[] args) {
+		GuessNumber guessNumber = new GuessNumber();
+		System.out.println("Введите имя первого игрока");
 		Player player1 = new Player(scanner.nextLine());
+		System.out.println("Введите имя второго игрока");
 		Player player2 = new Player(scanner.nextLine());
 
 		guessNumber.start();
@@ -13,6 +15,7 @@ public class GuessNumberTest {
 	}
 
 	public static void restart() {
+		GuessNumber guessNumber = new GuessNumber();
 		while (true) {
 			System.out.println("Хотите продолжить?");
 			String answer = scanner.nextLine();

@@ -7,13 +7,11 @@ public class Player {
 		this.name = name;
 	}
 
-	public Player() {}
-
 	public int getNumber() {
 		return number;
 	}
 
-	public void setNumber(int number) {
+	public Player(int number) { 
 		this.number = number;
 	}
 }
