@@ -11,7 +11,7 @@ public class Player {
 		return number;
 	}
 
-	public Player(int number) { 
+	void setNumber(int number) {
 		this.number = number;
 	}
 }

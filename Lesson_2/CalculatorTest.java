@@ -1,12 +1,11 @@
 import java.util.Scanner;
 
 public class CalculatorTest {
-	static Scanner scanner = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		String answer = "да";
-		while (answer == "да") {
-			Calculator calculator = new Calculator();
+		Scanner scanner = new Scanner(System.in);
+		Calculator calculator = new Calculator();
+		do {
 			System.out.println("Введите первое число: ");
 			calculator.setNum1(scanner.nextInt());
 			System.out.println("Введите знак математической операции: ");
@@ -14,13 +13,11 @@ public class CalculatorTest {
 			System.out.println("Введите второе число: ");
 			calculator.setNum2(scanner.nextInt());
 			calculator.calculate();
-			while (true) {
+			String answer = "";
+			while (answer != "да" && answer != "нет") {
 				System.out.println("Хотите продолжить?");
 				answer = scanner.nextLine();
-				if (answer == "да" || answer == "нет") {
-					break;
-				}
-			}
-		}
+			} 
+		} while (answer == "да");
 	}
 }
