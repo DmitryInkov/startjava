@@ -1,9 +1,9 @@
-package com.startjava.Lesson_2_3.calculator;
+package com.startjava.Lesson_2_3_4.array.calculator;
 
 public class Calculator {
 	private int num1;
 	private int num2;
-	private char operation;
+	char operation;
 
 	void setNum1(int num1) {
 		this.num1 = num1;
@@ -20,10 +20,10 @@ public class Calculator {
 	void calculate() {
 		switch (operation) {
 			case '+': 
-				System.out.println("num1 + num2 = " + (num1 + num2));
+				System.out.println("num1 + num2 = " + (Math.addExact(num1, num2)));
 				break;
 			case '-': 
-				System.out.println("num1 - num2 = " + (num1 - num2));
+				System.out.println("num1 - num2 = " + (Math.subtractExact(num1, num2)));
 				break;
 			case '*': 
 				System.out.println("num1 * num2 = " + (num1 * num2));
@@ -32,15 +32,12 @@ public class Calculator {
 				System.out.println("num1 / num2 = " + (num1 / num2));
 				break;
 			case '^':
-				int exponentiation = 1;
-				for (int i = 1; i <= num2; i++) {
-					exponentiation *= num1;
-				}
-				System.out.println("num1 ^ num2 = " + (exponentiation));
-				break;
+				System.out.println("num1 ^ num2 = " + (Math.pow(num1, num2)));
 			case '%': 
 				System.out.println("num1 % num2 = " + (num1 % num2));
 				break;
+			default:
+				System.out.println("error");
 		}
 	}
 }
