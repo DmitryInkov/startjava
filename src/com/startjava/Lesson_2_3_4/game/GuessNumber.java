@@ -71,8 +71,8 @@ public class GuessNumber {
 
 	public void numbersPlayers() {
 
-        int[] enteredNumbersCopy1 = Arrays.copyOf(player1.enteredNumbers, a);
-        int[] enteredNumbersCopy2 = Arrays.copyOf(player2.enteredNumbers, b);
+    	int[] enteredNumbersCopy1 = Arrays.copyOf(player1.enteredNumbers, a);
+    	int[] enteredNumbersCopy2 = Arrays.copyOf(player2.enteredNumbers, b);
 
 		for (int i = 0; i < enteredNumbersCopy1.length; i++) {
 			System.out.print(enteredNumbersCopy1[i] + " ");
