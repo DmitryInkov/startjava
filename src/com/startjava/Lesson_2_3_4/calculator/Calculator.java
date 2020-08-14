@@ -20,10 +20,10 @@ public class Calculator {
 	void calculate() {
 		switch (operation) {
 			case '+': 
-				System.out.println("num1 + num2 = " + (num1 + num2));
+				System.out.println("num1 + num2 = " + (Math.addExact(num1, num2)));
 				break;
 			case '-': 
-				System.out.println("num1 - num2 = " + (num1 - num2));
+				System.out.println("num1 - num2 = " + (Math.subtractExact(num1, num2)));
 				break;
 			case '*': 
 				System.out.println("num1 * num2 = " + (num1 * num2));
@@ -32,19 +32,12 @@ public class Calculator {
 				System.out.println("num1 / num2 = " + (num1 / num2));
 				break;
 			case '^':
-				pow();
-				break;
+				System.out.println("num1 ^ num2 = " + (Math.pow(num1, num2)));
 			case '%': 
 				System.out.println("num1 % num2 = " + (num1 % num2));
 				break;
+			default:
+				System.out.println("error");
 		}
-	}
-
-	private void pow() {
-		int exponentiation = 1;
-		for (int i = 1; i <= num2; i++) {
-			exponentiation *= num1;
-		}
-		System.out.println("num1 ^ num2 = " + (exponentiation));
 	}
 }

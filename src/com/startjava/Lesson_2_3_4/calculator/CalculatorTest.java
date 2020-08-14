@@ -10,12 +10,12 @@ public class CalculatorTest {
 		System.out.println("Калькулятор запущен");
 		String answer = "да";
 		while(answer.equals("да")) {
-			System.out.print("Введите первое число: ");
-			calculator.setNum1(scanner.nextInt());
-			System.out.print("Введите знак математической операции: ");
-			calculator.setOperation(scanner.next().charAt(0));
-			System.out.print("Введите второе число: ");
-			calculator.setNum2(scanner.nextInt());
+			System.out.print("Введите математическое выражение: ");
+			String expression = scanner.nextLine();
+			String[] elements = expression.split(" ",3);
+			calculator.setNum1(Integer.parseInt(elements[0]));
+			calculator.setOperation(elements[1].charAt(0));
+			calculator.setNum2(Integer.parseInt(elements[2]));
 			calculator.calculate();
 			do {
 				System.out.print("Хотите продолжить? [да/нет]: ");
