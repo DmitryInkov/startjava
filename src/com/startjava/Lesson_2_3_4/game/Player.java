@@ -1,12 +1,10 @@
 package com.startjava.Lesson_2_3_4.game;
 
-import java.util.Arrays;
-
 public class Player {
 
 	private String name;
 	private int number;
-	int[] enteredNumbers = new int[10];
+	private int[] enteredNumbers = new int[10];
 
 	public Player(String name) {
 		this.name = name;
@@ -23,4 +21,8 @@ public class Player {
 	void setNumber(int number) {
 		this.number = number;
 	}
+
+	public int[] getEnteredNumbers() { return enteredNumbers; }
+
+	void setEnteredNumbers(int index, int value) { enteredNumbers[index] = value; }
 }

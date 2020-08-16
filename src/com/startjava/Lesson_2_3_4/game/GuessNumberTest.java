@@ -11,7 +11,6 @@ public class GuessNumberTest {
 			System.out.println("Игроки вводят свои имена");
 			GuessNumber guessNumber = new GuessNumber(new Player(scan.nextLine()), new Player(scan.nextLine()));
 			guessNumber.start();
-
 			answer = "";
 			while (!answer.equals("да") && !answer.equals("нет")) {
 				System.out.println("Хотите продолжить?");
