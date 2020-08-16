@@ -22,7 +22,11 @@ public class Player {
 		this.number = number;
 	}
 
-	public int[] getEnteredNumbers() { return enteredNumbers; }
+	public int[] getEnteredNumbers() {
+		return enteredNumbers;
+	}
 
-	void setEnteredNumbers(int index, int value) { enteredNumbers[index] = value; }
+	void setEnteredNumbers(int index, int value) {
+		enteredNumbers[index] = value;
+	}
 }
