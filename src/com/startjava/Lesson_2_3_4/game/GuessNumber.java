@@ -18,19 +18,8 @@ public class GuessNumber {
 
     public void start() {
         while (player1.getIndex() < 10 && player2.getIndex() < 10) {
-            inputNumber(player1);
-            if (compareNumber(player1) == true) {
-                break;
-            }
-            player1.setIndex(player1.getIndex() + 1);
-            finish(player1);
-
-            inputNumber(player2);
-            if (compareNumber(player2) == true) {
-                break;
-            }
-            player1.setIndex(player2.getIndex() + 1);
-            finish(player2);
+            makeMove(player1);
+            makeMove(player2);
         }
         outputNumbers(player1);
         System.out.println("");
@@ -38,18 +27,20 @@ public class GuessNumber {
     }
 
     public void inputNumber(Player player) {
-        player.setEnteredNumber(player.getIndex(), scan.nextInt());
-        System.out.println("Игрок " + player.getName() + " вводит число: " + player.getEnteredNumber(player.getIndex()));
+        System.out.println("Игроку " + player.getName() + " нужно ввести число");
+        player.setEnteredNumber(scan.nextInt());
+        System.out.println("Игрок " + player.getName() + " вводит число: " + player.getEnteredNumber());
+        player.setIndex(player.getIndex() + 1);
     }
 
     public boolean compareNumber(Player player) {
         boolean compare = false;
 
-        if (player.getEnteredNumber(player.getIndex()) > targetNumber) {
+        if (player.getEnteredNumber() > targetNumber) {
             System.out.println("Введенное число игрока " + player.getName() + " больше того, что загадал компьютер");
-        } else if (player.getEnteredNumber(player.getIndex()) < targetNumber) {
+        } else if (player.getEnteredNumber() < targetNumber) {
             System.out.println("Введенное число игрока " + player.getName() + " меньше того, что загадал компьютер");
-        } else if (player.getEnteredNumber(player.getIndex()) == targetNumber) {
+        } else if (player.getEnteredNumber() == targetNumber) {
             System.out.println("Игрок " + player.getName() + " угадал число " + targetNumber + " c " + (player.getIndex() + 1) + " попытки");
             compare = true;
         }
@@ -62,8 +53,16 @@ public class GuessNumber {
         }
     }
 
+    public void makeMove(Player player) {
+        inputNumber(player);
+        if (compareNumber(player)) {
+            break;
+        }
+        finish(player);
+    }
+
     public void outputNumbers(Player player) {
-        for (int number:player.getEnteredNumbers()) {
+        for (int number : player.getEnteredNumbers()) {
             System.out.print(number + " ");
         }
     }

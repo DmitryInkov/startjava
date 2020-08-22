@@ -4,35 +4,35 @@ import java.util.Arrays;
 
 public class Player {
 
-	private String name;
+    private String name;
     private int index = 0;
-	private int[] enteredNumbers = new int[10];
+    private int[] enteredNumbers = new int[10];
 
-	public Player(String name) {
-		this.name = name;
-	}
+    public Player(String name) {
+        this.name = name;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public int getIndex() {
-	    return index;
+    public int getIndex() {
+        return index;
     }
 
     void setIndex(int index) {
-	    this.index = index;
+        this.index = index;
     }
 
-	public int[] getEnteredNumbers() {
-		return Arrays.copyOf(enteredNumbers, index);
-	}
+    public int[] getEnteredNumbers() {
+        return Arrays.copyOf(enteredNumbers, index);
+    }
 
-	public int getEnteredNumber(int index) {
-		return enteredNumbers[index];
-	}
+    public int getEnteredNumber() {
+        return enteredNumbers[index];
+    }
 
-	void setEnteredNumber(int index, int number) {
-		enteredNumbers[index] = number;
-	}
+    void setEnteredNumber(int number) {
+        enteredNumbers[index] = number;
+    }
 }
