@@ -20,19 +20,19 @@ public class Player {
         return index;
     }
 
-    void setIndex(int index) {
+    public void setIndex(int index) {
         this.index = index;
+    }
+
+    public int getCurrentNumber() {
+        return enteredNumbers[index];
+    }
+
+    public void setEnteredNumber(int number) {
+        enteredNumbers[index] = number;
     }
 
     public int[] getEnteredNumbers() {
         return Arrays.copyOf(enteredNumbers, index);
-    }
-
-    public int getEnteredNumber() {
-        return enteredNumbers[index];
-    }
-
-    void setEnteredNumber(int number) {
-        enteredNumbers[index] = number;
     }
 }
