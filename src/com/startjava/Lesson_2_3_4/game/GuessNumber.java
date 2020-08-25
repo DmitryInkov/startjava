@@ -17,24 +17,45 @@ public class GuessNumber {
     }
 
     public void start() {
-        while (player1.getIndex() < 10 && player2.getIndex() < 10) {
-            if (makeMove(player1) || makeMove(player2)) {
-                break;
-            }
-        }
+        do {
+            if (makeMove(player1) || makeMove(player2)) break;
+        } while (player1.getIndex() < 10 && player2.getIndex() < 10);
         outputNumbers(player1);
         outputNumbers(player2);
     }
 
     private boolean makeMove(Player player) {
-
         boolean guess = false;
         inputNumber(player);
         if (compareNumber(player)) {
             guess = true;
         }
-        finish(player);
+        finishAttempts(player);
         return guess;
+    }
+
+    private void inputNumber(Player player) {
+        System.out.println("Игроку " + player.getName() + " нужно ввести число");
+        player.setEnteredNumber(scan.nextInt());
+        System.out.println("Игрок " + player.getName() + " вводит число: " + player.getCurrentNumber());
+    }
+
+    private boolean compareNumber(Player player) {
+        boolean compare = false;
+        if (player.getCurrentNumber() == targetNumber) {
+            System.out.println("Игрок " + player.getName() + " угадал число " + targetNumber + " c " + (player.getIndex() + 1) + " попытки");
+            compare = true;
+        }
+        String moreOrLess = player.getCurrentNumber() > targetNumber ? ("Введенное число игрока " + player.getName() + " больше того, что загадал компьютер") : ("Введенное число игрока " + player.getName() + " меньше того, что загадал компьютер");
+        System.out.println(moreOrLess);
+        return compare;
+
+    }
+
+    private void finishAttempts(Player player) {
+        if (player.getIndex() >= 10) {
+            System.out.println("У " + player.getName() + " закончились попытки");
+        }
     }
 
     private void outputNumbers(Player player) {
@@ -42,32 +63,5 @@ public class GuessNumber {
             System.out.print(number + " ");
         }
         System.out.println("");
-    }
-
-    private void inputNumber(Player player) {
-        System.out.println("Игроку " + player.getName() + " нужно ввести число");
-        player.setEnteredNumber(scan.nextInt());
-        System.out.println("Игрок " + player.getName() + " вводит число: " + player.getCurrentNumber());
-        player.setIndex(player.getIndex() + 1);
-    }
-
-    private boolean compareNumber(Player player) {
-
-        boolean compare = false;
-        if (player.getCurrentNumber() > targetNumber) {
-            System.out.println("Введенное число игрока " + player.getName() + " больше того, что загадал компьютер");
-        } else if (player.getCurrentNumber() < targetNumber) {
-            System.out.println("Введенное число игрока " + player.getName() + " меньше того, что загадал компьютер");
-        } else if (player.getCurrentNumber() == targetNumber) {
-            System.out.println("Игрок " + player.getName() + " угадал число " + targetNumber + " c " + (player.getIndex() + 1) + " попытки");
-            compare = true;
-        }
-        return compare;
-    }
-
-    private void finish(Player player) {
-        if (player.getIndex() >= 10) {
-            System.out.println("У " + player.getName() + " закончились попытки");
-        }
     }
 }

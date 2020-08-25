@@ -20,16 +20,13 @@ public class Player {
         return index;
     }
 
-    public void setIndex(int index) {
-        this.index = index;
-    }
-
     public int getCurrentNumber() {
-        return enteredNumbers[index];
+        return enteredNumbers[index - 1];
     }
 
     public void setEnteredNumber(int number) {
         enteredNumbers[index] = number;
+        index++;
     }
 
     public int[] getEnteredNumbers() {
