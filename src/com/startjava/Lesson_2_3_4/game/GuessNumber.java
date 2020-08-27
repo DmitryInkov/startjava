@@ -19,7 +19,7 @@ public class GuessNumber {
     public void start() {
         do {
             if (makeMove(player1) || makeMove(player2)) break;
-        } while (player1.getIndex() < 10 && player2.getIndex() < 10);
+        } while (true);
         outputNumbers(player1);
         outputNumbers(player2);
     }
@@ -27,10 +27,9 @@ public class GuessNumber {
     private boolean makeMove(Player player) {
         boolean guess = false;
         inputNumber(player);
-        if (compareNumber(player)) {
+        if (compareNumber(player) || finishAttempts(player)) {
             guess = true;
         }
-        finishAttempts(player);
         return guess;
     }
 
@@ -46,16 +45,18 @@ public class GuessNumber {
             System.out.println("Игрок " + player.getName() + " угадал число " + targetNumber + " c " + (player.getIndex() + 1) + " попытки");
             compare = true;
         }
-        String moreOrLess = player.getCurrentNumber() > targetNumber ? ("Введенное число игрока " + player.getName() + " больше того, что загадал компьютер") : ("Введенное число игрока " + player.getName() + " меньше того, что загадал компьютер");
-        System.out.println(moreOrLess);
+        String moreOrLess = player.getCurrentNumber() > targetNumber ? " больше" : " меньше";
+        System.out.println("Введенное число игрока " + player.getName() + moreOrLess  + " того, что загадал компьютер");
         return compare;
-
     }
 
-    private void finishAttempts(Player player) {
+    private boolean finishAttempts(Player player) {
+        boolean finish = false;
         if (player.getIndex() >= 10) {
             System.out.println("У " + player.getName() + " закончились попытки");
+            finish = true;
         }
+        return finish;
     }
 
     private void outputNumbers(Player player) {
